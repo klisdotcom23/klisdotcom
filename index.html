@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pesan Buat Kamu</title>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: #fff0f5;
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 50px;
-      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .card {
       background-color: white;
-      padding: 40px;
+      padding: 40px 30px;
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      display: inline-block;
       max-width: 600px;
       width: 90%;
+      text-align: center;
     }
 
     .slide {
@@ -26,14 +31,16 @@
       font-size: 28px;
       color: #e91e63;
       font-weight: bold;
-      margin-bottom: 30px;
       opacity: 0;
-      transform: translateY(20px);
       transition: all 0.6s ease;
     }
 
-    .slide.slide-left {
+    .slide-left {
       transform: translateX(-50px);
+    }
+
+    .slide-down {
+      transform: translateY(30px);
     }
 
     .slide.active {
@@ -43,25 +50,26 @@
     }
 
     .next-btn {
-      font-size: 22px;
+      font-size: 20px;
+      margin-top: 30px;
       cursor: pointer;
-      color: #e91e63;
-      padding: 10px 20px;
-      background-color: #ffe4ec;
+      color: #fff;
+      background-color: #e91e63;
+      padding: 12px 28px;
       border: none;
       border-radius: 10px;
-      transition: background 0.3s;
       font-weight: bold;
+      transition: background 0.3s;
     }
 
     .next-btn:hover {
-      background-color: #f8bbd0;
+      background-color: #c2185b;
     }
 
     .big-love {
       font-size: 60px;
       animation: float 1.5s ease-in-out infinite;
-      margin: 20px 0;
+      margin: 20px 0 10px;
     }
 
     .i-love-you {
@@ -71,22 +79,18 @@
     }
 
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-15px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="slide active">Hai kamu 😳</div>
+    <div class="slide active slide-down">Hai kamu 😳</div>
     <div class="slide slide-left">Aku cuma mau bilang satu hal penting...</div>
-    <div class="slide">Aku sayang kamu banget 💖</div>
+    <div class="slide slide-down">Aku sayang kamu banget 💖</div>
     <div class="slide slide-left">Kayak langit sama bintang, aku nggak bisa jauh dari kamu.</div>
-    <div class="slide">Semangat ya, aku selalu ada buat kamu 😘</div>
+    <div class="slide slide-down">Semangat ya, aku selalu ada buat kamu 😘</div>
     <div class="slide">
       <div class="big-love">❤</div>
       <div class="i-love-you">I love you</div>
