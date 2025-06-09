@@ -50,12 +50,12 @@
     }
 
     .next-btn {
-      font-size: 20px;
+      font-size: 16px;           /* ukuran lebih kecil */
       margin-top: 30px;
       cursor: pointer;
       color: #fff;
       background: linear-gradient(135deg, #ff4081, #e91e63);
-      padding: 14px 32px;
+      padding: 10px 24px;        /* padding disesuaikan */
       border: none;
       border-radius: 30px;
       font-weight: bold;
@@ -129,9 +129,15 @@
         slides[current].classList.add('active');
 
         if (current === slides.length - 1) {
-          btn.disabled = true;
           btn.textContent = "Selesai";
+          btn.disabled = false;
         }
+      } else if (current === slides.length - 1) {
+        // Saat tombol selesai diklik, coba tutup window atau redirect
+        if (window.close) {
+          window.close();
+        }
+        window.location.href = "about:blank";
       }
     }
   </script>
