@@ -54,16 +54,33 @@
       margin-top: 30px;
       cursor: pointer;
       color: #fff;
-      background-color: #e91e63;
-      padding: 12px 28px;
+      background: linear-gradient(135deg, #ff4081, #e91e63);
+      padding: 14px 32px;
       border: none;
-      border-radius: 10px;
+      border-radius: 30px;
       font-weight: bold;
-      transition: background 0.3s;
+      box-shadow: 0 6px 15px rgba(233, 30, 99, 0.5);
+      transition: background 0.4s, box-shadow 0.4s, transform 0.2s;
+      user-select: none;
     }
 
-    .next-btn:hover {
-      background-color: #c2185b;
+    .next-btn:hover:not(:disabled) {
+      background: linear-gradient(135deg, #e91e63, #c2185b);
+      box-shadow: 0 8px 20px rgba(194, 24, 91, 0.7);
+      transform: translateY(-3px);
+    }
+
+    .next-btn:active:not(:disabled) {
+      transform: translateY(1px);
+      box-shadow: 0 4px 12px rgba(194, 24, 91, 0.6);
+    }
+
+    .next-btn:disabled {
+      background-color: #bbb;
+      box-shadow: none;
+      cursor: default;
+      color: #666;
+      transform: none;
     }
 
     .big-love {
@@ -86,10 +103,11 @@
 </head>
 <body>
   <div class="card">
-    <div class="slide active slide-down">Hai kamu 😳</div>
-    <div class="slide slide-left">Aku cuma mau bilang satu hal penting...</div>
-    <div class="slide slide-down">Aku sayang kamu banget 💖</div>
-    <div class="slide slide-left">Kayak langit sama bintang, aku nggak bisa jauh dari kamu.</div>
+    <div class="slide active slide-down">Hai Cantik 😳</div>
+    <div class="slide slide-left">Aku cuma mau bilang satu hal penting banget...</div>
+    <div class="slide slide-down">Jangan Lupa Selalu Bahagia 💖</div>
+    <div class="slide slide-left">Eh Jan Lupa Mandi JUga wkwk.</div>
+    <div class="slide slide-left">biar ga bau ihhh.</div>
     <div class="slide slide-down">Semangat ya, aku selalu ada buat kamu 😘</div>
     <div class="slide">
       <div class="big-love">❤</div>
@@ -102,11 +120,19 @@
   <script>
     let current = 0;
     const slides = document.querySelectorAll('.slide');
+    const btn = document.querySelector('.next-btn');
 
     function nextSlide() {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
+      if (current < slides.length - 1) {
+        slides[current].classList.remove('active');
+        current++;
+        slides[current].classList.add('active');
+
+        if (current === slides.length - 1) {
+          btn.disabled = true;
+          btn.textContent = "Selesai";
+        }
+      }
     }
   </script>
 </body>
