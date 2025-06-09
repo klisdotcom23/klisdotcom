@@ -8,34 +8,70 @@
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
       padding: 50px;
+      margin: 0;
     }
+
     .card {
       background-color: white;
-      padding: 30px;
+      padding: 40px;
       border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       display: inline-block;
-      max-width: 500px;
-      cursor: pointer;
+      max-width: 600px;
+      width: 90%;
     }
+
     .slide {
       display: none;
-      font-size: 20px;
+      font-size: 28px;
       color: #e91e63;
+      font-weight: bold;
+      margin-bottom: 30px;
     }
+
     .slide.active {
       display: block;
+    }
+
+    .next-btn {
+      font-size: 30px;
+      cursor: pointer;
+      color: #e91e63;
+      transition: transform 0.2s;
+    }
+
+    .next-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .big-love {
+      font-size: 60px;
+      animation: float 1.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card" onclick="nextSlide()">
+  <div class="card">
     <div class="slide active">Hai kamu 😳</div>
-    <div class="slide">Aku cuma mau bilang satu hal...</div>
-    <div class="slide">Aku sayang kamu banget 💖</div>
-    <div class="slide">Kayak langit sama bintang, aku nggak bisa jauh dari kamu.</div>
-    <div class="slide">Semangat ya, aku selalu ada buat kamu 😘</div>
-    <div class="slide">Udah selesai? Tapi sayangnya rasa sayangku nggak pernah selesai 💗</div>
+    <div class="slide">Aku cuma mau bilang satu hal penting...</div>
+    <div class="slide">Jangan lupa selalu bahagia 💖</div>
+    <div class="slide">masa bidadari ku sedih sie.</div>
+    <div class="slide">Bahagia selalu, aku selalu ada buat kamu 😘</div>
+    <div class="slide">
+      Udah selesai? Tapi rasa sayangku ke kamu nggak pernah selesai ko 💗<br><br>
+      <div class="big-love">❤</div>
+    </div>
+
+    <div class="next-btn" onclick="nextSlide()">➡</div>
   </div>
 
   <script>
