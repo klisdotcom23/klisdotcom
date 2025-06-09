@@ -16,16 +16,37 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: inline-block;
       max-width: 500px;
+      cursor: pointer;
+    }
+    .slide {
+      display: none;
+      font-size: 20px;
+      color: #e91e63;
+    }
+    .slide.active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Hai Kamu 😳</h1>
-    <p>Aku cuma mau bilang satu hal penting...</p>
-    <h2 style="color: #e91e63;">Aku sayang kamu banget 💖</h2>
-    <p>Kayak langit nggak bisa lepas dari bintang, aku juga nggak bisa lepas dari kamu.</p>
-    <p>Semangat ya, semesta sayang kamu — aku juga 😘</p>
+  <div class="card" onclick="nextSlide()">
+    <div class="slide active">Hai kamu 😳</div>
+    <div class="slide">Aku cuma mau bilang satu hal...</div>
+    <div class="slide">Aku sayang kamu banget 💖</div>
+    <div class="slide">Kayak langit sama bintang, aku nggak bisa jauh dari kamu.</div>
+    <div class="slide">Semangat ya, aku selalu ada buat kamu 😘</div>
+    <div class="slide">Udah selesai? Tapi sayangnya rasa sayangku nggak pernah selesai 💗</div>
   </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function nextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+  </script>
 </body>
 </html>
